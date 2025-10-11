@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "TPS63031DSKR")(type "KiCad")(uri "${KIPRJMOD}/led_watch.pretty/TPS63031DSKR.kicad_sym")(options "")(descr ""))
+  (lib (name "BAT-HLD-001")(type "KiCad")(uri "${KIPRJMOD}/led_watch.pretty/BAT-HLD-001.kicad_sym")(options "")(descr ""))
+)
