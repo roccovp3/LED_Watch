@@ -1,4 +1,4 @@
-26643411043022424
+26645172228508468
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -106266,6 +106266,13 @@ BAT_BAT-HLD-005-THM
 0
 3
 3
+led_watch
+KSS223GLFG
+KSS223GLFG-3
+Switch
+0
+2
+2
 led_watch
 SON50P250X250X80-11N
 

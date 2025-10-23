@@ -1462,6 +1462,158 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "KSS223GLFG:KSS223GLFG"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "S"
+				(at 16.51 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "KSS223GLFG"
+				(at 16.51 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "KSS223GLFG"
+				(at 16.51 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 16.51 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Tactile Switches Gold 200Gf Gullwing"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "1.7"
+				(at 16.51 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "611-KSS223GLFG"
+				(at 16.51 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/CK/KSS223GLFG/?qs=vOd3edNlRKDrjmqWpM8YJA%3D%3D"
+				(at 16.51 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "C & K COMPONENTS"
+				(at 16.51 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "KSS223GLFG"
+				(at 16.51 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "KSS223GLFG_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 15.24 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Oscillator:TXC-7C"
 			(pin_names
 				(offset 0.254)
@@ -2664,10 +2816,6 @@
 		(uuid "0411691c-39a6-4ce7-aaea-bbff00817572")
 	)
 	(no_connect
-		(at 309.88 116.84)
-		(uuid "0a6044a3-0fdf-41e7-a0ed-900cf8c664e6")
-	)
-	(no_connect
 		(at 365.76 83.82)
 		(uuid "13359185-d23f-4395-8f8e-7d33e1370b31")
 	)
@@ -2888,6 +3036,16 @@
 			(type default)
 		)
 		(uuid "17fe9cc2-a742-4492-9d1c-8dde1ff826c5")
+	)
+	(wire
+		(pts
+			(xy 303.53 116.84) (xy 303.53 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "181efad8-89ea-49a3-9195-76db7e36889e")
 	)
 	(wire
 		(pts
@@ -3521,6 +3679,16 @@
 	)
 	(wire
 		(pts
+			(xy 303.53 125.73) (xy 307.34 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60beb6f5-5c2c-4fdc-a8ad-beb3db08d2ff")
+	)
+	(wire
+		(pts
 			(xy 255.27 110.49) (xy 255.27 111.76)
 		)
 		(stroke
@@ -3761,6 +3929,16 @@
 	)
 	(wire
 		(pts
+			(xy 307.34 128.27) (xy 303.53 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "897bdf55-278e-4142-ab3a-108558a7b2ab")
+	)
+	(wire
+		(pts
 			(xy 67.31 189.23) (xy 67.31 204.47)
 		)
 		(stroke
@@ -3998,6 +4176,16 @@
 			(type default)
 		)
 		(uuid "a5d8790c-6155-4131-8112-ec7ce3d7bcd0")
+	)
+	(wire
+		(pts
+			(xy 303.53 128.27) (xy 303.53 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7d88c68-a5d7-43a5-9927-c8719e6c0f44")
 	)
 	(wire
 		(pts
@@ -4318,6 +4506,16 @@
 			(type default)
 		)
 		(uuid "ce9e582d-0722-46b5-85e9-c120115f57d6")
+	)
+	(wire
+		(pts
+			(xy 309.88 116.84) (xy 303.53 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfc72d8d-3710-456c-a066-12d5b89913fd")
 	)
 	(wire
 		(pts
@@ -5955,6 +6153,71 @@
 			(project "led_watch"
 				(path "/2ba2d868-0c1e-438d-873d-80061e515404"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 303.53 133.35 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14a4ab92-95ef-471c-912b-8fe95a4a8552")
+		(property "Reference" "#PWR05"
+			(at 303.53 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 303.53 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 303.53 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 303.53 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 303.53 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "711e4b6e-6361-41eb-9919-bcc303ae60f7")
+		)
+		(instances
+			(project "led_watch"
+				(path "/2ba2d868-0c1e-438d-873d-80061e515404"
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -12103,6 +12366,128 @@
 			(project "led_watch"
 				(path "/2ba2d868-0c1e-438d-873d-80061e515404"
 					(reference "D69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KSS223GLFG:KSS223GLFG")
+		(at 307.34 125.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d8684440-8c84-4a90-9b0e-82a3552cd403")
+		(property "Reference" "S1"
+			(at 323.342 125.7878 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "KSS223GLFG"
+			(at 323.342 128.2121 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "KSS223GLFG"
+			(at 323.85 220.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 323.85 320.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Tactile Switches Gold 200Gf Gullwing"
+			(at 307.34 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.7"
+			(at 323.85 520.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "611-KSS223GLFG"
+			(at 323.85 620.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/CK/KSS223GLFG/?qs=vOd3edNlRKDrjmqWpM8YJA%3D%3D"
+			(at 323.85 720.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "C & K COMPONENTS"
+			(at 323.85 820.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "KSS223GLFG"
+			(at 323.85 920.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7f948621-3506-46d2-a4c7-df2b450f29f1")
+		)
+		(pin "1"
+			(uuid "889b9b5c-d18b-4ad2-832b-f09e43a841df")
+		)
+		(instances
+			(project ""
+				(path "/2ba2d868-0c1e-438d-873d-80061e515404"
+					(reference "S1")
 					(unit 1)
 				)
 			)
