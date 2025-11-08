@@ -1,0 +1,124 @@
+# ----------------------------------------------------------------
+# General & OS-specific files
+# ----------------------------------------------------------------
+*.log
+*.tmp
+*.bak
+*.swp
+
+# macOS
+.DS_Store
+*.AppleDouble
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+
+# ----------------------------------------------------------------
+# KiCad Project Files (for v6 and later)
+# ----------------------------------------------------------------
+# Backup files
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_pro-bak
+*.net-bak
+
+# Auto-saved files
+_autosave*
+*.kicad_sch-autosave
+*.kicad_pcb-autosave
+
+# Session files and lock files
+*.kicad_prl
+*.kicad_pro.lck
+*.kicad_sch.lck
+*.kicad_pcb.lck
+*-save.pro
+*-save.sch
+*-save.pcb
+
+# Output files (Gerbers, drill files, plots, etc.)
+# It's best practice to put these in a dedicated directory, e.g., "fabrication/"
+/fabrication/
+/gerbers/
+/plots/
+*.gbr
+*.drl
+*.xnc
+*.pos
+*.rpt
+*.gko
+*.gts
+*.gto
+*.gtl
+*.gbs
+*.gbo
+*.gbl
+*.gm1
+*.svg
+*.pdf
+*.png
+
+# Netlist files
+*.net
+*.xml
+*.bom
+
+# 3D model cache
+3d/
+fp-info-cache
+
+# Other generated files
+sym-lib-table.bak
+fp-lib-table.bak
+
+hw/led_watch-backups/
+
+
+# ----------------------------------------------------------------
+# Texas Instruments Code Composer Studio (CCS)
+# ----------------------------------------------------------------
+# Build directories (adjust if you use a different name)
+sw/Debug/
+sw/Release/
+sw/build/
+
+# CCS project configuration files (user-specific)
+.settings/
+.launches/
+*.launch
+*.cmd
+
+# Target configuration files
+sw/targetConfigs/
+
+# Compiled object files, executables, and libraries
+*.o
+*.obj
+*.out
+*.hex
+*.bin
+*.elf
+*.axf
+*.lib
+*.a
+.clangd
+
+# Dependency and map files
+*.d
+*.map
+*.pp
+
+# SysConfig generated files
+# Typically you commit the .syscfg file and ignore the generated output
+*.c.dot
+*.h.dot
+sw/syscfg/
+
+# Other metadata
+sw/.tirex/
+sw/.metadata/
+**/.theia/
