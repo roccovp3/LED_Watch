@@ -10,7 +10,8 @@ typedef struct {
     uint8_t cathode_pincm;
 } watch_led_t;
 
-void one_led_out(watch_led_t led);
-void next_led_out();
+void next_led_out(uint8_t mode);
+void led_out(uint32_t cycle_count);
+void increment_min();
 
 #endif

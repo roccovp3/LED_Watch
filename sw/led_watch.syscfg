@@ -9,10 +9,10 @@
 /**
  * Import the modules used in this configuration.
  */
+const Board         = scripting.addModule("/ti/driverlib/Board");
 const GPIO          = scripting.addModule("/ti/driverlib/GPIO", {}, false);
 const GPIO1         = GPIO.addInstance();
 const SYSCTL        = scripting.addModule("/ti/driverlib/SYSCTL");
-const SYSTICK       = scripting.addModule("/ti/driverlib/SYSTICK");
 const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
 
 /**
@@ -21,15 +21,18 @@ const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
 const mux6       = system.clockTree["FCCSELCLKMUX"];
 mux6.inputSelect = "FCCSELCLKMUX_SYSOSC";
 
-const mux11       = system.clockTree["SYSCTLMUX"];
-mux11.inputSelect = "SYSCTLMUX_LFCLK";
-
 const oscillator2           = system.clockTree["SYSOSC"];
 oscillator2.frequencySelect = 4;
 
+Board.configureUnused             = true;
+Board.unusedDirection             = "INPUT";
+Board.peripheral.$assign          = "DEBUGSS";
+Board.peripheral.swclkPin.$assign = "PA20";
+Board.peripheral.swdioPin.$assign = "PA19";
+
 GPIO1.$name                               = "GPIO_GRP_0";
 GPIO1.port                                = "PORTA";
-GPIO1.associatedPins.create(10);
+GPIO1.associatedPins.create(11);
 GPIO1.associatedPins[0].assignedPin       = "4";
 GPIO1.associatedPins[0].$name             = "PIN_4";
 GPIO1.associatedPins[0].direction         = "INPUT";
@@ -70,15 +73,16 @@ GPIO1.associatedPins[8].pin.$assign       = "PA7";
 GPIO1.associatedPins[9].$name             = "PIN_3";
 GPIO1.associatedPins[9].direction         = "INPUT";
 GPIO1.associatedPins[9].assignedPin       = "3";
-GPIO1.associatedPins[9].interruptPriority = "0";
 GPIO1.associatedPins[9].polarity          = "RISE";
 GPIO1.associatedPins[9].interruptEn       = true;
+GPIO1.associatedPins[9].interruptPriority = "1";
 GPIO1.associatedPins[9].pin.$assign       = "PA3";
-
-const Board                       = scripting.addModule("/ti/driverlib/Board", {}, false);
-Board.peripheral.$assign          = "DEBUGSS";
-Board.peripheral.swclkPin.$assign = "PA20";
-Board.peripheral.swdioPin.$assign = "PA19";
+GPIO1.associatedPins[10].$name            = "PIN_9";
+GPIO1.associatedPins[10].assignedPin      = "9";
+GPIO1.associatedPins[10].direction        = "INPUT";
+GPIO1.associatedPins[10].internalResistor = "PULL_UP";
+GPIO1.associatedPins[10].interruptEn      = true;
+GPIO1.associatedPins[10].polarity         = "RISE_FALL";
 
 SYSCTL.forceDefaultClkConfig = true;
 SYSCTL.validateClkStatus     = true;
@@ -86,3 +90,10 @@ SYSCTL.SYSOSC_Freq           = 4000000;
 SYSCTL.peripheral.$assign    = "SYSCTL";
 
 ProjectConfig.migrationCondition = true;
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+GPIO1.associatedPins[10].pin.$suggestSolution = "PA9";
