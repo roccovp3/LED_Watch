@@ -36,7 +36,7 @@
 uint32_t second_count = 0;
 uint64_t master_count = 0;
 
-uint8_t time_set_mode = 1;
+uint8_t time_set_mode = 0;
 void handle_button_press(void)
 {
     next_led_out(time_set_mode);
@@ -44,10 +44,7 @@ void handle_button_press(void)
 
 void handle_button_long_press(void)
 {
-    // toggle bt 1 and 2
-    time_set_mode--;
-    time_set_mode = !time_set_mode;
-    time_set_mode++;
+    time_set_mode = (time_set_mode + 1) % 3;
 }
 
 uint64_t timer_on_press = 0;
@@ -96,4 +93,3 @@ int main(void)
 
     return 0;
 }
-
