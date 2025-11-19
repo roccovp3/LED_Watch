@@ -3114,7 +3114,7 @@
 			(uuid "b07c686a-e8ec-4a5e-b52e-78527d360699")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Oscillator.3dshapes/Oscillator_SMD_Fox_FT5H_5.0x3.2mm.step"
+		(model "${KICAD9_3DMODEL_DIR}/Oscillator.3dshapes/Oscillator_SMD_SeikoEpson_SG210-4Pin_2.5x2.0mm.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3122,7 +3122,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -0 -0 -90)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
@@ -12148,15 +12148,15 @@
 			(uuid "eac6f701-5206-48d9-a8be-2fdb0fd474e6")
 		)
 		(embedded_fonts no)
-		(model "${KICAD6_3DMODEL_DIR}/Package_SO.3dshapes/VSSOP-10_3x3mm_P0.5mm.wrl"
+		(model "${KIPRJMOD}/led_watch.pretty/M0G3507QDGS32RQ1.stp"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 -2.75 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
