@@ -1,8 +1,8 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "MSPM0G350X" --part "Default" --package "VQFN-32(RHB)" --product "mspm0_sdk@2.07.00.06"
- * @v2CliArgs --device "MSPM0G3507" --package "VQFN-32(RHB)" --product "mspm0_sdk@2.07.00.06"
+ * @cliArgs --device "MSPM0G350X" --part "Default" --package "VQFN-32(RHB)" --product "mspm0_sdk@2.08.00.03"
+ * @v2CliArgs --device "MSPM0G3507" --package "VQFN-32(RHB)" --product "mspm0_sdk@2.08.00.03"
  * @versions {"tool":"1.25.0+4268"}
  */
 
@@ -12,6 +12,7 @@
 const Board         = scripting.addModule("/ti/driverlib/Board");
 const GPIO          = scripting.addModule("/ti/driverlib/GPIO", {}, false);
 const GPIO1         = GPIO.addInstance();
+const RTC           = scripting.addModule("/ti/driverlib/RTC");
 const SYSCTL        = scripting.addModule("/ti/driverlib/SYSCTL");
 const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
 
@@ -30,65 +31,67 @@ Board.peripheral.$assign          = "DEBUGSS";
 Board.peripheral.swclkPin.$assign = "PA20";
 Board.peripheral.swdioPin.$assign = "PA19";
 
-GPIO1.$name                                = "GPIO_GRP_0";
-GPIO1.port                                 = "PORTA";
-GPIO1.associatedPins.create(11);
-GPIO1.associatedPins[0].assignedPin        = "4";
-GPIO1.associatedPins[0].$name              = "PIN_4";
-GPIO1.associatedPins[0].direction          = "INPUT";
-GPIO1.associatedPins[0].pin.$assign        = "PA4";
-GPIO1.associatedPins[1].$name              = "PIN_2";
-GPIO1.associatedPins[1].assignedPin        = "2";
-GPIO1.associatedPins[1].direction          = "INPUT";
-GPIO1.associatedPins[1].interruptPriority  = "0";
-GPIO1.associatedPins[1].pin.$assign        = "PA2";
-GPIO1.associatedPins[2].$name              = "PIN_5";
-GPIO1.associatedPins[2].assignedPin        = "5";
-GPIO1.associatedPins[2].direction          = "INPUT";
-GPIO1.associatedPins[2].pin.$assign        = "PA5";
-GPIO1.associatedPins[3].$name              = "PIN_8";
-GPIO1.associatedPins[3].assignedPin        = "8";
-GPIO1.associatedPins[3].direction          = "INPUT";
-GPIO1.associatedPins[3].pin.$assign        = "PA8";
-GPIO1.associatedPins[4].$name              = "PIN_10";
-GPIO1.associatedPins[4].assignedPin        = "10";
-GPIO1.associatedPins[4].direction          = "INPUT";
-GPIO1.associatedPins[4].pin.$assign        = "PA10";
-GPIO1.associatedPins[5].$name              = "PIN_25";
-GPIO1.associatedPins[5].assignedPin        = "25";
-GPIO1.associatedPins[5].direction          = "INPUT";
-GPIO1.associatedPins[5].pin.$assign        = "PA25";
-GPIO1.associatedPins[6].$name              = "PIN_13";
-GPIO1.associatedPins[6].assignedPin        = "13";
-GPIO1.associatedPins[6].direction          = "INPUT";
-GPIO1.associatedPins[6].pin.$assign        = "PA13";
-GPIO1.associatedPins[7].$name              = "PIN_12";
-GPIO1.associatedPins[7].assignedPin        = "12";
-GPIO1.associatedPins[7].direction          = "INPUT";
-GPIO1.associatedPins[7].pin.$assign        = "PA12";
-GPIO1.associatedPins[8].$name              = "PIN_7";
-GPIO1.associatedPins[8].assignedPin        = "7";
-GPIO1.associatedPins[8].direction          = "INPUT";
-GPIO1.associatedPins[8].pin.$assign        = "PA7";
-GPIO1.associatedPins[9].$name              = "PIN_3";
-GPIO1.associatedPins[9].direction          = "INPUT";
-GPIO1.associatedPins[9].assignedPin        = "3";
-GPIO1.associatedPins[9].polarity           = "RISE";
-GPIO1.associatedPins[9].interruptEn        = true;
-GPIO1.associatedPins[9].interruptPriority  = "1";
-GPIO1.associatedPins[9].pin.$assign        = "PA3";
-GPIO1.associatedPins[10].$name             = "PIN_9";
-GPIO1.associatedPins[10].assignedPin       = "9";
-GPIO1.associatedPins[10].direction         = "INPUT";
-GPIO1.associatedPins[10].internalResistor  = "PULL_UP";
-GPIO1.associatedPins[10].interruptEn       = true;
-GPIO1.associatedPins[10].polarity          = "RISE_FALL";
-GPIO1.associatedPins[10].interruptPriority = "0";
+GPIO1.$name                                       = "GPIO_GRP_0";
+GPIO1.port                                        = "PORTA";
+GPIO1.associatedPins.create(10);
+GPIO1.associatedPins[0].assignedPin               = "4";
+GPIO1.associatedPins[0].$name                     = "PIN_4";
+GPIO1.associatedPins[0].direction                 = "INPUT";
+GPIO1.associatedPins[0].pin.$assignAllowConflicts = "PA4";
+GPIO1.associatedPins[1].$name                     = "PIN_2";
+GPIO1.associatedPins[1].assignedPin               = "2";
+GPIO1.associatedPins[1].direction                 = "INPUT";
+GPIO1.associatedPins[1].interruptPriority         = "0";
+GPIO1.associatedPins[1].pin.$assign               = "PA2";
+GPIO1.associatedPins[2].$name                     = "PIN_5";
+GPIO1.associatedPins[2].assignedPin               = "5";
+GPIO1.associatedPins[2].direction                 = "INPUT";
+GPIO1.associatedPins[2].pin.$assign               = "PA5";
+GPIO1.associatedPins[3].$name                     = "PIN_8";
+GPIO1.associatedPins[3].assignedPin               = "8";
+GPIO1.associatedPins[3].direction                 = "INPUT";
+GPIO1.associatedPins[3].pin.$assign               = "PA8";
+GPIO1.associatedPins[4].$name                     = "PIN_10";
+GPIO1.associatedPins[4].assignedPin               = "10";
+GPIO1.associatedPins[4].direction                 = "INPUT";
+GPIO1.associatedPins[4].pin.$assign               = "PA10";
+GPIO1.associatedPins[5].$name                     = "PIN_25";
+GPIO1.associatedPins[5].assignedPin               = "25";
+GPIO1.associatedPins[5].direction                 = "INPUT";
+GPIO1.associatedPins[5].pin.$assign               = "PA25";
+GPIO1.associatedPins[6].$name                     = "PIN_13";
+GPIO1.associatedPins[6].assignedPin               = "13";
+GPIO1.associatedPins[6].direction                 = "INPUT";
+GPIO1.associatedPins[6].pin.$assign               = "PA13";
+GPIO1.associatedPins[7].$name                     = "PIN_12";
+GPIO1.associatedPins[7].assignedPin               = "12";
+GPIO1.associatedPins[7].direction                 = "INPUT";
+GPIO1.associatedPins[7].pin.$assign               = "PA12";
+GPIO1.associatedPins[8].$name                     = "PIN_7";
+GPIO1.associatedPins[8].assignedPin               = "7";
+GPIO1.associatedPins[8].direction                 = "INPUT";
+GPIO1.associatedPins[8].pin.$assign               = "PA7";
+GPIO1.associatedPins[9].$name                     = "PIN_9";
+GPIO1.associatedPins[9].assignedPin               = "9";
+GPIO1.associatedPins[9].direction                 = "INPUT";
+GPIO1.associatedPins[9].internalResistor          = "PULL_UP";
+GPIO1.associatedPins[9].interruptEn               = true;
+GPIO1.associatedPins[9].polarity                  = "RISE_FALL";
+GPIO1.associatedPins[9].interruptPriority         = "0";
 
-SYSCTL.forceDefaultClkConfig = true;
-SYSCTL.validateClkStatus     = true;
-SYSCTL.SYSOSC_Freq           = 4000000;
-SYSCTL.peripheral.$assign    = "SYSCTL";
+RTC.enabledInterrupts  = ["PRESCALER0"];
+RTC.interruptPriority  = "0";
+RTC.enableRTCOutputPin = false;
+
+SYSCTL.forceDefaultClkConfig                      = true;
+SYSCTL.validateClkStatus                          = true;
+SYSCTL.SYSOSC_Freq                                = 4000000;
+SYSCTL.powerPolicy                                = "STANDBY0";
+SYSCTL.LFCLKDriveStrength                         = "LOWEST";
+SYSCTL.LFCLKSource                                = "LFXT";
+SYSCTL.peripheral.$assign                         = "SYSCTL";
+SYSCTL.peripheral.lfxOutPin.$assignAllowConflicts = "PA4";
+scripting.suppress("Resource conflict,@@@.+?@@@ is also in use by @@@.+?@@@", SYSCTL.peripheral, "lfxOutPin");
 
 ProjectConfig.migrationCondition = true;
 
@@ -97,4 +100,6 @@ ProjectConfig.migrationCondition = true;
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-GPIO1.associatedPins[10].pin.$suggestSolution = "PA9";
+GPIO1.associatedPins[9].pin.$suggestSolution = "PA9";
+RTC.peripheral.$suggestSolution              = "RTC";
+SYSCTL.peripheral.lfxInPin.$suggestSolution  = "PA3";
