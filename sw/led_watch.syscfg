@@ -12,7 +12,6 @@
 const Board         = scripting.addModule("/ti/driverlib/Board");
 const GPIO          = scripting.addModule("/ti/driverlib/GPIO", {}, false);
 const GPIO1         = GPIO.addInstance();
-const RTC           = scripting.addModule("/ti/driverlib/RTC");
 const SYSCTL        = scripting.addModule("/ti/driverlib/SYSCTL");
 const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
 
@@ -33,7 +32,7 @@ Board.peripheral.swdioPin.$assign = "PA19";
 
 GPIO1.$name                                       = "GPIO_GRP_0";
 GPIO1.port                                        = "PORTA";
-GPIO1.associatedPins.create(10);
+GPIO1.associatedPins.create(11);
 GPIO1.associatedPins[0].assignedPin               = "4";
 GPIO1.associatedPins[0].$name                     = "PIN_4";
 GPIO1.associatedPins[0].direction                 = "INPUT";
@@ -78,20 +77,20 @@ GPIO1.associatedPins[9].internalResistor          = "PULL_UP";
 GPIO1.associatedPins[9].interruptEn               = true;
 GPIO1.associatedPins[9].polarity                  = "RISE_FALL";
 GPIO1.associatedPins[9].interruptPriority         = "0";
+GPIO1.associatedPins[10].$name                    = "PIN_3";
+GPIO1.associatedPins[10].direction                = "INPUT";
+GPIO1.associatedPins[10].polarity                 = "RISE";
+GPIO1.associatedPins[10].interruptEn              = true;
+GPIO1.associatedPins[10].interruptPriority        = "0";
+GPIO1.associatedPins[10].wakeupLogic              = "ON_1";
+GPIO1.associatedPins[10].fastWakeEn               = true;
 
-RTC.enabledInterrupts  = ["PRESCALER0"];
-RTC.interruptPriority  = "0";
-RTC.enableRTCOutputPin = false;
-
-SYSCTL.forceDefaultClkConfig                      = true;
-SYSCTL.validateClkStatus                          = true;
-SYSCTL.SYSOSC_Freq                                = 4000000;
-SYSCTL.powerPolicy                                = "STANDBY0";
-SYSCTL.LFCLKDriveStrength                         = "LOWEST";
-SYSCTL.LFCLKSource                                = "LFXT";
-SYSCTL.peripheral.$assign                         = "SYSCTL";
-SYSCTL.peripheral.lfxOutPin.$assignAllowConflicts = "PA4";
-scripting.suppress("Resource conflict,@@@.+?@@@ is also in use by @@@.+?@@@", SYSCTL.peripheral, "lfxOutPin");
+SYSCTL.forceDefaultClkConfig = true;
+SYSCTL.validateClkStatus     = true;
+SYSCTL.SYSOSC_Freq           = 4000000;
+SYSCTL.LFCLKDriveStrength    = "LOWEST";
+SYSCTL.powerPolicy           = "STANDBY1";
+SYSCTL.peripheral.$assign    = "SYSCTL";
 
 ProjectConfig.migrationCondition = true;
 
@@ -100,6 +99,5 @@ ProjectConfig.migrationCondition = true;
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-GPIO1.associatedPins[9].pin.$suggestSolution = "PA9";
-RTC.peripheral.$suggestSolution              = "RTC";
-SYSCTL.peripheral.lfxInPin.$suggestSolution  = "PA3";
+GPIO1.associatedPins[9].pin.$suggestSolution  = "PA9";
+GPIO1.associatedPins[10].pin.$suggestSolution = "PA0";
