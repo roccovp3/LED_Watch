@@ -18,6 +18,15 @@ const ProjectConfig = scripting.addModule("/ti/project_config/ProjectConfig");
 /**
  * Write custom configuration values to the imported modules.
  */
+const divider4       = system.clockTree["PLL_CLK0_DIV"];
+divider4.divideValue = 4;
+
+const divider6       = system.clockTree["PLL_CLK2X_DIV"];
+divider6.divideValue = 4;
+
+const multiplier2         = system.clockTree["PLL_QDIV"];
+multiplier2.multiplyValue = 20;
+
 const mux6       = system.clockTree["FCCSELCLKMUX"];
 mux6.inputSelect = "FCCSELCLKMUX_SYSOSC";
 
@@ -76,6 +85,7 @@ GPIO1.associatedPins[9].assignedPin        = "3";
 GPIO1.associatedPins[9].polarity           = "RISE";
 GPIO1.associatedPins[9].interruptEn        = true;
 GPIO1.associatedPins[9].interruptPriority  = "1";
+GPIO1.associatedPins[9].fastWakeEn         = true;
 GPIO1.associatedPins[9].pin.$assign        = "PA3";
 GPIO1.associatedPins[10].$name             = "PIN_9";
 GPIO1.associatedPins[10].assignedPin       = "9";
@@ -88,7 +98,9 @@ GPIO1.associatedPins[10].interruptPriority = "0";
 SYSCTL.forceDefaultClkConfig = true;
 SYSCTL.validateClkStatus     = true;
 SYSCTL.SYSOSC_Freq           = 4000000;
-SYSCTL.peripheral.$assign    = "SYSCTL";
+SYSCTL.powerPolicy           = "STANDBY0";
+SYSCTL.VDD                   = 3;
+SYSCTL.clockTreeEn           = true;
 
 ProjectConfig.migrationCondition = true;
 
